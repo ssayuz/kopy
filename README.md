@@ -22,7 +22,7 @@ kopy는 한국어 키워드로 쓴 코드를 파이썬으로 바꿔서 실행합
 
 **방법 1 — 설치 파일 (Windows, 파이썬 필요 없음)**
 
-[Releases](../../releases)에서 `kopy-setup.exe`를 받아 실행하세요.
+[Releases](https://github.com/ssayuz/kopy/releases)에서 `kopy-setup.exe`를 받아 실행하세요.
 
 - `.kopy` 파일을 더블클릭하면 실행돼요. 편집은 우클릭 → 편집(메모장)
 - 새로 연 터미널 어디서든 `kopy` 명령어 사용
@@ -32,7 +32,7 @@ kopy는 한국어 키워드로 쓴 코드를 파이썬으로 바꿔서 실행합
 **방법 2 — pip (파이썬 3.8 이상)**
 
 ```
-git clone <이 저장소 주소>
+git clone https://github.com/ssayuz/kopy.git
 cd kopy
 pip install .
 ```
@@ -158,4 +158,4 @@ kopy/
 
 ## 라이선스
 
-[MIT](LICENSE)
+[MIT](LICENSE) © 2026 이윤재 (ssayuz)
