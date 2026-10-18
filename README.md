@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">kopy</h1>
-<p align="center"><b>한국어로 쓰는 파이썬</b></p>
+<p align="center"><b>한국어로 쓰는 파이썬</b><br><a href="https://ssayuz.github.io/kopy/">홈페이지</a> · <a href="https://github.com/ssayuz/kopy/releases/latest/download/kopy-setup.exe">설치 파일 받기</a></p>
 
 ```
 함수 피보나치(n):

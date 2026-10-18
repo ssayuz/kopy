@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kopy — 한국어로 쓰는 파이썬 | 한글 프로그래밍 언어</title>
+<meta name="description" content="kopy는 한국어 키워드로 코딩하는 프로그래밍 언어예요. 파이썬 문법 그대로 '만약', '반복', '출력'처럼 한글로 쓰고, 편집기에서 F5로 바로 실행해요. 무료, Windows 설치 파일 제공.">
+<meta name="keywords" content="kopy, 한국어 프로그래밍 언어, 한글 코딩, 한글 프로그래밍, 한국어 파이썬, 코딩 입문, 초보 코딩, 파이썬 한글">
+<meta name="author" content="이윤재 (ssayuz)">
+<link rel="canonical" href="https://ssayuz.github.io/kopy/">
+<link rel="icon" href="favicon.ico">
+<!-- 검색 등록 확인 태그 (Google Search Console / 네이버 서치어드바이저에서 받은 값을 넣어요) -->
+<!-- <meta name="google-site-verification" content=""> -->
+<!-- <meta name="naver-site-verification" content=""> -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="kopy">
+<meta property="og:title" content="kopy — 한국어로 쓰는 파이썬">
+<meta property="og:description" content="'만약', '반복', '출력'처럼 한글로 코딩하는 프로그래밍 언어. 편집기에서 F5로 바로 실행.">
+<meta property="og:url" content="https://ssayuz.github.io/kopy/">
+<meta property="og:image" content="https://ssayuz.github.io/kopy/logo.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "kopy",
+  "alternateName": "한국어로 쓰는 파이썬",
+  "description": "한국어 키워드로 코딩하는 프로그래밍 언어. 파이썬 문법을 그대로 따르며 편집기와 Windows 설치 파일을 제공합니다.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows",
+  "softwareVersion": "0.4.0",
+  "inLanguage": "ko",
+  "url": "https://ssayuz.github.io/kopy/",
+  "downloadUrl": "https://github.com/ssayuz/kopy/releases/latest/download/kopy-setup.exe",
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {"@type": "Person", "name": "이윤재", "url": "https://github.com/ssayuz"},
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}
+}
+</script>
+<style>
+  :root {
+    --bg: #111111; --bg2: #1a1a1a; --bg3: #232323; --line: #2e2e2e;
+    --fg: #f5f3ee; --muted: #a3a3a3; --accent: #3b82f6; --accent2: #2563eb;
+    --kw: #c586c0; --bi: #dcdcaa; --str: #ce9178; --com: #6a9955; --num: #b5cea8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg); line-height: 1.7;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", system-ui, sans-serif;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  .serif { font-family: "Times New Roman", Times, Georgia, serif; font-weight: 400; }
+  code, pre { font-family: "D2Coding", "Cascadia Mono", Consolas, monospace; }
+
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  nav .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 26px; }
+  nav .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  nav .links { display: flex; gap: 20px; font-size: 15px; color: var(--muted); }
+  nav .links a { text-decoration: none; }
+  nav .links a:hover { color: var(--fg); }
+
+  .hero { text-align: center; padding: 72px 0 48px; }
+  .hero h1 { font-size: clamp(64px, 12vw, 120px); margin: 0; line-height: 1; letter-spacing: -1px; }
+  .hero p.lead { font-size: clamp(18px, 2.6vw, 22px); color: var(--muted); margin: 18px auto 32px; max-width: 620px; }
+  .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 10px;
+    text-decoration: none; font-weight: 600; font-size: 16px; border: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: white; }
+  .btn.primary:hover { background: var(--accent2); }
+  .btn.ghost:hover { background: var(--bg3); }
+  .small { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0 24px; }
+  .code {
+    text-align: left; min-width: 0;
+    background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  }
+  .code .head { padding: 10px 16px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line); }
+  .code pre { margin: 0; padding: 16px; font-size: 15px; line-height: 1.65; overflow-x: auto; }
+  .kw { color: var(--kw); } .bi { color: var(--bi); } .str { color: var(--str); }
+  .com { color: var(--com); } .num { color: var(--num); }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 28px; margin: 0 0 8px; }
+  section > .wrap > p.sub { color: var(--muted); margin: 0 0 28px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  ol.steps { padding-left: 20px; margin: 0; }
+  ol.steps li { margin-bottom: 10px; }
+  .inline { background: var(--bg3); padding: 2px 7px; border-radius: 6px; font-size: 14px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 500; }
+  td code { color: var(--kw); }
+  td code.py { color: var(--muted); }
+  .table-wrap { overflow-x: auto; }
+
+  .examples { display: flex; flex-wrap: wrap; gap: 8px; }
+  .examples a {
+    text-decoration: none; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
+    font-size: 14px; background: var(--bg2);
+  }
+  .examples a:hover { background: var(--bg3); }
+
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+  @media (max-width: 760px) {
+    .compare, .grid { grid-template-columns: 1fr; }
+    nav .links { gap: 14px; font-size: 14px; }
+    nav .links .hide-sm { display: none; }
+    .hero { padding: 48px 0 32px; }
+    .btn { padding: 12px 18px; font-size: 15px; }
+    .code pre { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav>
+    <a class="brand serif" href="./">kopy</a>
+    <div class="links">
+      <a href="#start">시작하기</a>
+      <a class="hide-sm" href="#keywords">키워드</a>
+      <a class="hide-sm" href="#examples">예제</a>
+      <a href="https://github.com/ssayuz/kopy">GitHub</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <h1 class="serif">kopy</h1>
+    <p class="lead">한국어로 쓰는 파이썬.<br>‘만약’, ‘반복’, ‘출력’처럼 한글로 코딩하고, F5로 바로 실행해요.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/ssayuz/kopy/releases/latest/download/kopy-setup.exe">⬇ 무료 다운로드</a>
+      <a class="btn ghost" href="https://github.com/ssayuz/kopy">GitHub에서 보기</a>
+    </div>
+    <p class="small">파이썬이 없어도 돼요 · Windows 10/11 · MIT 라이선스</p>
+
+    <div class="compare">
+      <div class="code">
+        <div class="head">kopy</div>
+<pre><span class="kw">함수</span> 피보나치(n):
+    <span class="kw">만약</span> n &lt; <span class="num">2</span>:
+        <span class="kw">반환</span> n
+    <span class="kw">반환</span> 피보나치(n - <span class="num">1</span>) + 피보나치(n - <span class="num">2</span>)
+
+<span class="kw">반복</span> i <span class="kw">안에</span> <span class="bi">범위</span>(<span class="num">10</span>):
+    <span class="bi">출력</span>(피보나치(i))</pre>
+      </div>
+      <div class="code">
+        <div class="head">파이썬으로 바뀐 코드</div>
+<pre><span class="kw">def</span> 피보나치(n):
+    <span class="kw">if</span> n &lt; <span class="num">2</span>:
+        <span class="kw">return</span> n
+    <span class="kw">return</span> 피보나치(n - <span class="num">1</span>) + 피보나치(n - <span class="num">2</span>)
+
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bi">range</span>(<span class="num">10</span>):
+    <span class="bi">print</span>(피보나치(i))</pre>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>왜 kopy인가요?</h2>
+      <p class="sub">영어 키워드 때문에 코딩이 어렵게 느껴졌다면, 한국어로 먼저 시작해 보세요.</p>
+      <div class="grid">
+        <div class="card"><h3>한국어 키워드</h3><p>만약·아니면·반복·함수·클래스·시도·예외까지 파이썬 문법을 한국어로 써요.</p></div>
+        <div class="card"><h3>파이썬과 똑같이</h3><p>파이썬으로 바꿔서 실행해서 표준 라이브러리, pip 패키지를 그대로 쓸 수 있어요.</p></div>
+        <div class="card"><h3>전용 편집기</h3><p>색칠, 줄 번호, 자동 들여쓰기. 코드를 쓰고 F5를 누르면 바로 실행돼요.</p></div>
+        <div class="card"><h3>한국어 오류 메시지</h3><p>“영나누기오류: 0으로 나눌 수 없어요”처럼 몇 번째 줄에서 무엇이 틀렸는지 알려줘요.</p></div>
+        <div class="card"><h3>설치 한 번이면 끝</h3><p>설치 파일을 실행하면 편집기, 명령어, 예제, 파일 연결까지 한 번에 준비돼요.</p></div>
+        <div class="card"><h3>무료 · 오픈 소스</h3><p>MIT 라이선스. 코드는 GitHub에 모두 공개되어 있어요.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="wrap">
+      <h2>시작하기</h2>
+      <p class="sub">3분이면 첫 프로그램을 실행할 수 있어요.</p>
+      <ol class="steps">
+        <li><a href="https://github.com/ssayuz/kopy/releases/latest/download/kopy-setup.exe">kopy-setup.exe</a>를 받아 실행하고 ‘예’를 누르세요. Windows가 경고하면 “추가 정보 → 실행”을 누르세요.</li>
+        <li>바탕 화면의 <b>kopy 편집기</b>를 여세요.</li>
+        <li><span class="inline">출력("안녕, kopy!")</span>을 쓰고 <b>F5</b>를 누르세요.</li>
+        <li>터미널에서는 <span class="inline">kopy 파일.kopy</span>로 실행할 수 있어요. 사용법은 <span class="inline">python</span>과 같아요.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="keywords">
+    <div class="wrap">
+      <h2>키워드</h2>
+      <p class="sub">파이썬 키워드와 한 줄씩 짝지어져 있어요.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>kopy</th><th>파이썬</th><th>kopy</th><th>파이썬</th></tr>
+          <tr><td><code>만약</code></td><td><code class="py">if</code></td><td><code>함수</code></td><td><code class="py">def</code></td></tr>
+          <tr><td><code>아니면 만약</code></td><td><code class="py">elif</code></td><td><code>반환</code></td><td><code class="py">return</code></td></tr>
+          <tr><td><code>아니면</code></td><td><code class="py">else</code></td><td><code>클래스</code></td><td><code class="py">class</code></td></tr>
+          <tr><td><code>반복 … 안에</code></td><td><code class="py">for … in</code></td><td><code>참 / 거짓 / 없음</code></td><td><code class="py">True / False / None</code></td></tr>
+          <tr><td><code>동안</code></td><td><code class="py">while</code></td><td><code>그리고 / 또는 / 아님</code></td><td><code class="py">and / or / not</code></td></tr>
+          <tr><td><code>중단 / 계속 / 통과</code></td><td><code class="py">break / continue / pass</code></td><td><code>가져오기 / 부터 / 로서</code></td><td><code class="py">import / from / as</code></td></tr>
+          <tr><td><code>시도 / 예외 / 마침내</code></td><td><code class="py">try / except / finally</code></td><td><code>발생</code></td><td><code class="py">raise</code></td></tr>
+          <tr><td><code>출력 / 입력</code></td><td><code class="py">print / input</code></td><td><code>범위 / 길이</code></td><td><code class="py">range / len</code></td></tr>
+        </table>
+      </div>
+      <p class="small">전체 목록: <a href="https://github.com/ssayuz/kopy#키워드">GitHub README</a></p>
+    </div>
+  </section>
+
+  <section id="examples">
+    <div class="wrap">
+      <h2>예제</h2>
+      <p class="sub">설치하면 예제 폴더에 들어 있어요. 편집기에서 파일 → 예제 열기.</p>
+      <div class="examples">
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/안녕.kopy">안녕</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/구구단.kopy">구구단</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/별찍기.kopy">별찍기</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/피즈버즈.kopy">FizzBuzz</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/소수.kopy">소수</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/계산기.kopy">계산기</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/숫자맞히기.kopy">숫자맞히기</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/성적표.kopy">성적표</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/할일목록.kopy">할일목록</a>
+        <a href="https://github.com/ssayuz/kopy/blob/main/예제/종합.kopy">종합</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="serif" style="font-size:20px;color:var(--fg)">kopy</span> · 한국어로 쓰는 파이썬 ·
+    <a href="https://github.com/ssayuz/kopy">GitHub</a> · MIT © 2026 이윤재 (ssayuz)
+  </div>
+</footer>
+
+</body>
+</html>
