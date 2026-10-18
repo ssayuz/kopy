@@ -1,0 +1,5 @@
+# GitHub에서 .kopy 파일을 파이썬처럼 색칠해서 보여주기
+*.kopy linguist-language=Python
+* text=auto
+*.png binary
+*.ico binary
